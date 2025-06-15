@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: org.sqlite.JDBC
+    url: "jdbc:sqlite:data/app.db"
+mybatis:
+  mapper-locations: classpath:dao/*.xml
+  type-aliases-package: com.photo.judge.entity
+
+# sql 日志的输出
+logging:
+  level:
+    com.photo.judge.dao: debug

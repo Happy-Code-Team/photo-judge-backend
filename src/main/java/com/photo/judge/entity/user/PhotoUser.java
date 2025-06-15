@@ -1,13 +1,19 @@
-package com.photo.judge.entity.dto.login;
+package com.photo.judge.entity.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class LoginDto {
+@Data
+public class PhotoUser {
+	private String userId;
+
 	private String userName;
+
 	private String password;
+
+	private String email;
+
 }

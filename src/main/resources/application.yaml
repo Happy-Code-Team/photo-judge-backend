@@ -1,0 +1,9 @@
+spring:
+  profiles:
+    active: "datasource"
+  application:
+    name: "photo-judge-backend"
+server:
+  port: 8089
+  servlet:
+    context-path: "/photo"
