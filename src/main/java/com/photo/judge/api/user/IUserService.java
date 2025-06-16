@@ -4,4 +4,6 @@ import com.photo.judge.entity.user.PhotoUser;
 
 public interface IUserService {
 	PhotoUser findUserByUserName(String userName);
+
+	Boolean checkUserNameExist(String userName);
 }

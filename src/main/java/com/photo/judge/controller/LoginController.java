@@ -28,6 +28,5 @@ public class LoginController {
 		}
 
 		return Response.success(photoUser);
-
 	}
 }
