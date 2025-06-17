@@ -25,7 +25,7 @@ public class SqlLiteTest {
                 create_at TEXT
             );
         """;
-
+		System.out.println(1);
 		this.jdbcTemplate.execute(ddl);
 
 		// 2、插入一条数据
