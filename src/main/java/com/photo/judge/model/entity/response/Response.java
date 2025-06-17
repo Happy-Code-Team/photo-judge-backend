@@ -1,4 +1,4 @@
-package com.photo.judge.entity.response;
+package com.photo.judge.model.entity.response;
 
 import lombok.Builder;
 import lombok.Data;

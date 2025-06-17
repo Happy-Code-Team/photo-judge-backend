@@ -1,6 +1,6 @@
-package com.photo.judge.api.user;
+package com.photo.judge.service.api.user;
 
-import com.photo.judge.entity.user.PhotoUser;
+import com.photo.judge.model.entity.user.PhotoUser;
 
 public interface IUserService {
 	PhotoUser findUserByUserName(String userName);

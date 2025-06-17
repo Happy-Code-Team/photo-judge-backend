@@ -1,4 +1,4 @@
-package com.photo.judge.entity.user;
+package com.photo.judge.model.entity.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
