@@ -3,12 +3,12 @@
 
 <mapper namespace="com.photo.judge.dao.PhotoUserMapperDao">
 
-    <select id="findUserById" resultType="com.photo.judge.entity.user.PhotoUser">
+    <select id="findUserById" resultType="com.photo.judge.model.entity.user.PhotoUser">
         SELECT user_id as userId, user_name as userName, password as password
         FROM photo_user WHERE user_id = #{id,jdbcType=VARCHAR}
     </select>
 
-    <select id="findUserByUserName" resultType="com.photo.judge.entity.user.PhotoUser">
+    <select id="findUserByUserName" resultType="com.photo.judge.model.entity.user.PhotoUser">
         SELECT user_id as userId, user_name as userName, password as password
         FROM photo_user WHERE user_name = #{userName,jdbcType=VARCHAR}
     </select>

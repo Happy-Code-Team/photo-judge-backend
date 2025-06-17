@@ -1,7 +1,7 @@
 package com.photo.judge.controller;
 
-import com.photo.judge.api.user.IUserService;
-import com.photo.judge.entity.response.Response;
+import com.photo.judge.service.api.user.IUserService;
+import com.photo.judge.model.entity.response.Response;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,6 +1,6 @@
 package com.photo.judge.dao;
 
-import com.photo.judge.entity.user.PhotoUser;
+import com.photo.judge.model.entity.user.PhotoUser;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
