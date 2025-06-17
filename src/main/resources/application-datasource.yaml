@@ -1,11 +1,30 @@
 spring:
   datasource:
-    type: com.zaxxer.hikari.HikariDataSource
-    driver-class-name: org.sqlite.JDBC
-    url: "jdbc:sqlite:data/app.db"
-mybatis:
-  mapper-locations: classpath:dao/*.xml
+    username: root
+    password: 123456
+    #开启批量执行    &rewriteBatchedStatements=true
+    url: jdbc:mysql://localhost:3306/mybatis_plus?useUnicode=true&amp&characterEncoding=utf-8&serverTimezone=UTC&rewriteBatchedStatements=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+#配置日志
+mybatis-plus:
+  mapper-locations: classpath:/dao/*.xml
   type-aliases-package: com.photo.judge.entity
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  configurationProperties:
+    tablePrefix:  # 自定义sql中表名带前缀  如果是生产环境这个地方换成 APPS.
+  #配置逻辑删除
+  global-config:
+    db-config:
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+      logic-delete-field: dr
+
+# 打印 mybatis plus join banner
+mybatis-plus-join:
+  banner: true
+  sub-table-logic: true
 
 # sql 日志的输出
 logging:
