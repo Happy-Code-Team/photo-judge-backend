@@ -1,9 +1,9 @@
-package com.photo.judge.controller;
+package com.photo.judge.controller.login;
 
-import com.photo.judge.service.api.user.IUserService;
+import com.photo.judge.service.photouser.PhotoUserService;
 import com.photo.judge.model.dto.login.LoginDto;
-import com.photo.judge.model.entity.response.Response;
-import com.photo.judge.model.entity.user.PhotoUser;
+import com.photo.judge.common.response.Response;
+import com.photo.judge.model.entity.photouser.PhotoUser;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,9 +14,9 @@ import java.util.Objects;
 @Slf4j
 @RestController
 public class LoginController {
-	private final IUserService userService;
+	private final PhotoUserService userService;
 
-	public LoginController(IUserService userService) {
+	public LoginController(PhotoUserService userService) {
 		this.userService = userService;
 	}
 
