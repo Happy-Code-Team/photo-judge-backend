@@ -41,6 +41,12 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <!-- mybatis-plus 联表 -->
+        <dependency>
+            <groupId>com.github.yulichang</groupId>
+            <artifactId>mybatis-plus-join</artifactId>
+            <version>1.4.13</version>
+        </dependency>
         <!-- MyBatis -->
         <dependency>
             <groupId>org.mybatis</groupId>
@@ -58,6 +64,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <!-- hutool工具类库 -->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.8.38</version>
         </dependency>
     </dependencies>
 
