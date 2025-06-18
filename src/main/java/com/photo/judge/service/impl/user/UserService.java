@@ -1,8 +1,8 @@
-package com.photo.judge.service.user;
+package com.photo.judge.service.impl.user;
 
-import com.photo.judge.api.user.IUserService;
+import com.photo.judge.service.api.user.IUserService;
 import com.photo.judge.dao.PhotoUserMapperDao;
-import com.photo.judge.entity.user.PhotoUser;
+import com.photo.judge.model.entity.user.PhotoUser;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;

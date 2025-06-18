@@ -1,4 +1,4 @@
-package com.photo.judge.dto.login;
+package com.photo.judge.model.dto.login;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

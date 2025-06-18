@@ -1,9 +1,9 @@
 package com.photo.judge.controller;
 
-import com.photo.judge.api.user.IUserService;
-import com.photo.judge.dto.login.LoginDto;
-import com.photo.judge.entity.response.Response;
-import com.photo.judge.entity.user.PhotoUser;
+import com.photo.judge.service.api.user.IUserService;
+import com.photo.judge.model.dto.login.LoginDto;
+import com.photo.judge.model.entity.response.Response;
+import com.photo.judge.model.entity.user.PhotoUser;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
