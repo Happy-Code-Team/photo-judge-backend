@@ -14,7 +14,11 @@ public class Response {
 		return Response.builder().code(200).message("Success").data(data).build();
 	}
 
-	public static Response fail(Object data, Integer code, String message) {
+	public static Response fail(Integer code, String message) {
+		return Response.builder().code(code).message(message).build();
+	}
+
+	public static Response fail(Integer code, String message, Object data) {
 		return Response.builder().code(code).message(message).data(data).build();
 	}
 }

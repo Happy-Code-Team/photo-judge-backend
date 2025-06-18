@@ -8,7 +8,7 @@ spring:
 
 #配置日志
 mybatis-plus:
-  mapper-locations: classpath:/dao/*.xml
+  mapper-locations: classpath:/dao/**/*.xml
   type-aliases-package: com.photo.judge.entity
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.photo.judge.dao.user.UserDao">
+
+    <select id="findUserById" resultType="com.photo.judge.model.entity.user.User">
+        SELECT id as id, user_code as userCode, user_name as userName, password as password
+        FROM user WHERE id = #{id,jdbcType=VARCHAR}
+    </select>
+
+    <select id="findUserByUserCode" resultType="com.photo.judge.model.entity.user.User">
+        SELECT id as id, user_code as userCode, user_name as userName, password as password
+        FROM user WHERE user_name = #{userName,jdbcType=VARCHAR}
+    </select>
+
+    <select id="selectUserNames" resultType="java.lang.String">
+        SELECT user_name as userName
+        FROM user
+    </select>
+
+</mapper>
