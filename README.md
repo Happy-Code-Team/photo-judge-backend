@@ -14,5 +14,3 @@
 ## 需求文档
 
 [需求文档说明](docs/task/requirements/需求文档.md)
-
-[待办清单](docs/task/todo/待办文档.md)
