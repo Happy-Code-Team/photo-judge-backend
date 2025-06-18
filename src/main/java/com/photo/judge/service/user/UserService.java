@@ -12,5 +12,7 @@ public interface UserService extends MyService<UserExtend> {
 	UserExtend selectByUserCode(String userCode);
 	//判断用户编码是否存在
 	Boolean checkUserCodeExist(String userCode);
+	//测试
+	void test(String id);
 
 }

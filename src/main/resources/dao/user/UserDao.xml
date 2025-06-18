@@ -1,21 +1,192 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
 <mapper namespace="com.photo.judge.dao.user.UserDao">
 
-    <select id="findUserById" resultType="com.photo.judge.model.entity.user.User">
-        SELECT id as id, user_code as userCode, user_name as userName, password as password
+    <sql id="allColumn">
+        id,                                               user_code,                                        user_name,                                        password,
+        email
+    </sql>
+
+    <sql id="allColumnAlias">
+        id as id,                                         user_code as userCode,                            user_name as userName,                            password as password,
+        email as email
+    </sql>
+
+    <sql id="allColumnValue">
+        #{id,jdbcType=VARCHAR},                           #{userCode,jdbcType=VARCHAR},                     #{userName,jdbcType=VARCHAR},                     #{password,jdbcType=VARCHAR},
+        #{email,jdbcType=VARCHAR}
+    </sql>
+
+    <sql id="allColumnItemValue">
+        #{item.id,jdbcType=VARCHAR},                      #{item.userCode,jdbcType=VARCHAR},                #{item.userName,jdbcType=VARCHAR},                #{item.password,jdbcType=VARCHAR},
+        #{item.email,jdbcType=VARCHAR}
+    </sql>
+
+    <sql id="allColumnSet">
+        <trim suffixOverrides=",">
+            <if test="userCode != null and userCode != ''">
+                user_code=#{userCode,jdbcType=VARCHAR},
+            </if>
+            <if test="userName != null and userName != ''">
+                user_name=#{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null and password != ''">
+                password=#{password,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null and email != ''">
+                email=#{email,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </sql>
+
+    <sql id="insertSelectiveColumn">
+        <trim suffixOverrides=",">
+            <if test="id != null and id != ''">
+                id,
+            </if>
+            <if test="userCode != null and userCode != ''">
+                user_code,
+            </if>
+            <if test="userName != null and userName != ''">
+                user_name,
+            </if>
+            <if test="password != null and password != ''">
+                password,
+            </if>
+            <if test="email != null and email != ''">
+                email,
+            </if>
+        </trim>
+    </sql>
+
+    <sql id="insertSelectiveValue">
+        <trim suffixOverrides=",">
+            <if test="id != null and id != ''">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="userCode != null and userCode != ''">
+                #{userCode,jdbcType=VARCHAR},
+            </if>
+            <if test="userName != null and userName != ''">
+                #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null and password != ''">
+                #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null and email != ''">
+                #{email,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </sql>
+
+    <sql id="updateSelectiveColumn">
+        <trim suffixOverrides=",">
+            <if test="userCode != null and userCode != ''">
+                user_code,
+            </if>
+            <if test="userName != null and userName != ''">
+                user_name,
+            </if>
+            <if test="password != null and password != ''">
+                password,
+            </if>
+            <if test="email != null and email != ''">
+                email,
+            </if>
+        </trim>
+    </sql>
+
+    <sql id="updateSelectiveValue">
+        <trim suffixOverrides=",">
+            <if test="userCode != null and userCode != ''">
+                #{userCode,jdbcType=VARCHAR},
+            </if>
+            <if test="userName != null and userName != ''">
+                #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null and password != ''">
+                #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null and email != ''">
+                #{email,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </sql>
+
+    <sql id="allColumnCond">
+        <if test="id != null and id != ''">
+            AND id=#{id,jdbcType=VARCHAR}
+        </if>
+        <if test="userCode != null and userCode != ''">
+            AND user_code=#{userCode,jdbcType=VARCHAR}
+        </if>
+        <if test="userName != null and userName != ''">
+            AND user_name=#{userName,jdbcType=VARCHAR}
+        </if>
+        <if test="password != null and password != ''">
+            AND password=#{password,jdbcType=VARCHAR}
+        </if>
+        <if test="email != null and email != ''">
+            AND email=#{email,jdbcType=VARCHAR}
+        </if>
+    </sql>
+
+    <insert id="insertXml" parameterType="com.photo.judge.model.entity.user.UserExtend">
+        INSERT INTO user (
+        <include refid="allColumn" />
+        ) VALUES (
+        <include refid="allColumnValue" />
+        )
+    </insert>
+
+    <insert id="insertBatchXml" parameterType="java.util.List">
+        INSERT INTO user (
+        <include refid="allColumn" />
+        ) VALUES
+        <foreach collection="list" item="item" separator=",">
+            (
+            <include refid="allColumnItemValue" />
+            )
+        </foreach>
+    </insert>
+
+    <delete id="delByIdXml" parameterType="string">
+        DELETE FROM user
+        WHERE id=#{value}
+    </delete>
+
+    <delete id="delByIdListXml" parameterType="java.util.List">
+        DELETE FROM user
+        WHERE id IN
+        <foreach collection="list" index="index" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <delete id="delXml" parameterType="com.photo.judge.model.entity.user.UserExtend">
+        DELETE FROM user
+        WHERE 1=1
+        <include refid="allColumnCond" />
+    </delete>
+
+    <update id="updateByIdXml" parameterType="com.photo.judge.model.entity.user.UserExtend">
+        UPDATE user SET
+        <include refid="allColumnSet" />
+        WHERE id=#{id}
+    </update>
+
+    <select id="selectByIdXml" resultType="com.photo.judge.model.entity.user.UserExtend">
+        SELECT id as id, user_code as userCode, user_name as userName, password as password, email as email
         FROM user WHERE id = #{id,jdbcType=VARCHAR}
     </select>
 
-    <select id="findUserByUserCode" resultType="com.photo.judge.model.entity.user.User">
-        SELECT id as id, user_code as userCode, user_name as userName, password as password
-        FROM user WHERE user_name = #{userName,jdbcType=VARCHAR}
-    </select>
-
-    <select id="selectUserNames" resultType="java.lang.String">
-        SELECT user_name as userName
+    <select id="selectXml" parameterType="com.photo.judge.model.entity.user.UserExtend" resultType="com.photo.judge.model.entity.user.UserExtend">
+        SELECT
+        <include refid="allColumnAlias" />
         FROM user
+        WHERE 1=1
+        <include refid="allColumnCond" />
+        <include refid="allColumnCondExtend" />
     </select>
 
 </mapper>

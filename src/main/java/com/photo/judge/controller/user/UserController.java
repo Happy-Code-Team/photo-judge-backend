@@ -28,4 +28,11 @@ public class UserController {
 		}
 		return Response.success("用户名可用");
 	}
+
+	/** 测试 **/
+	@GetMapping("/user/test")
+	public Response test(@RequestParam("id")  String id) {
+		userService.test(id);
+		return Response.success("");
+	}
 }
