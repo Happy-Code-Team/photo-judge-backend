@@ -1,4 +1,4 @@
-package com.photo.judge.model.entity.photouser;
+package com.photo.judge.model.entity.user;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -14,18 +14,22 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@TableName("photo_user")
-@Desc("用户信息表")
-public class PhotoUser implements Serializable {
+@TableName("user")
+@Desc("用户表")
+public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId(value = "user_id", type = IdType.ASSIGN_ID)
-    @Desc("用户id")
-    private String userId;
+    @TableId(value = "id", type = IdType.ASSIGN_ID)
+    @Desc("主键id")
+    private String id;
+
+    @TableField("user_code")
+    @Desc("用户编码")
+    private String userCode;
 
     @TableField("user_name")
-    @Desc("用户名")
+    @Desc("用户名称")
     private String userName;
 
     @TableField("password")

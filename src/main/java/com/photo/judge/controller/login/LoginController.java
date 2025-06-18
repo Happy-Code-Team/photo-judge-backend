@@ -1,9 +1,10 @@
 package com.photo.judge.controller.login;
 
-import com.photo.judge.service.photouser.PhotoUserService;
+import com.photo.judge.model.entity.user.UserExtend;
+import com.photo.judge.service.user.UserService;
 import com.photo.judge.model.dto.login.LoginDto;
 import com.photo.judge.common.response.Response;
-import com.photo.judge.model.entity.photouser.PhotoUser;
+import com.photo.judge.model.entity.user.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,19 +15,19 @@ import java.util.Objects;
 @Slf4j
 @RestController
 public class LoginController {
-	private final PhotoUserService userService;
+	private final UserService userService;
 
-	public LoginController(PhotoUserService userService) {
+	public LoginController(UserService userService) {
 		this.userService = userService;
 	}
 
+	/** 登录 **/
 	@PostMapping("/login")
 	public Response login(@RequestBody LoginDto loginDto) {
-		PhotoUser photoUser = userService.findUserByUserName(loginDto.getUserName());
-		if (Objects.isNull(photoUser)) {
-			return Response.fail("Invalid username or password", 401, "Unauthorized");
+		UserExtend userExtend = userService.selectByUserCode(loginDto.getUserCode());
+		if (Objects.isNull(userExtend)) {
+			return Response.fail(401, "无效的用户名或密码");
 		}
-
-		return Response.success(photoUser);
+		return Response.success(userExtend);
 	}
 }

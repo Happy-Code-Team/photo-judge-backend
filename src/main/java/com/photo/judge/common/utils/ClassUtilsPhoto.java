@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 /**
  * 聂文学 最后一次更新时间:2023-06-14 17:34:31
  */
-public class ClassUtilsNioa {
+public class ClassUtilsPhoto {
     //获取到对象的第index个的字段名称   0为第一个字段
     public static <T> String getNameByIndex(T entity, int index) {
         return entity.getClass().getDeclaredFields()[index].getName();
