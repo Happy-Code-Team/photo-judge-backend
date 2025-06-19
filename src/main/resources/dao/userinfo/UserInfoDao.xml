@@ -5,25 +5,25 @@
     <sql id="allColumn">
         id,                                               user_code,                                        user_name,                                        user_password,
         user_avatar,                                      creater,                                          create_time,                                      updater,
-        update_time
+        update_time,                                      ts
     </sql>
 
     <sql id="allColumnAlias">
         id as id,                                         user_code as userCode,                            user_name as userName,                            user_password as userPassword,
         user_avatar as userAvatar,                        creater as creater,                               create_time as createTime,                        updater as updater,
-        update_time as updateTime
+        update_time as updateTime,                        ts as ts
     </sql>
 
     <sql id="allColumnValue">
         #{id,jdbcType=VARCHAR},                           #{userCode,jdbcType=VARCHAR},                     #{userName,jdbcType=VARCHAR},                     #{userPassword,jdbcType=VARCHAR},
         #{userAvatar,jdbcType=VARCHAR},                   #{creater,jdbcType=VARCHAR},                      #{createTime,jdbcType=VARCHAR},                   #{updater,jdbcType=VARCHAR},
-        #{updateTime,jdbcType=VARCHAR}
+        #{updateTime,jdbcType=VARCHAR},                   #{ts,jdbcType=VARCHAR}
     </sql>
 
     <sql id="allColumnItemValue">
         #{item.id,jdbcType=VARCHAR},                      #{item.userCode,jdbcType=VARCHAR},                #{item.userName,jdbcType=VARCHAR},                #{item.userPassword,jdbcType=VARCHAR},
         #{item.userAvatar,jdbcType=VARCHAR},              #{item.creater,jdbcType=VARCHAR},                 #{item.createTime,jdbcType=VARCHAR},              #{item.updater,jdbcType=VARCHAR},
-        #{item.updateTime,jdbcType=VARCHAR}
+        #{item.updateTime,jdbcType=VARCHAR},              #{item.ts,jdbcType=VARCHAR}
     </sql>
 
     <sql id="allColumnSet">
@@ -51,6 +51,9 @@
             </if>
             <if test="updateTime != null and updateTime != ''">
                 update_time=#{updateTime,jdbcType=VARCHAR},
+            </if>
+            <if test="ts != null and ts != ''">
+                ts=#{ts,jdbcType=VARCHAR},
             </if>
         </trim>
     </sql>
@@ -82,6 +85,9 @@
         </if>
         <if test="updateTime != null and updateTime != ''">
             AND update_time=#{updateTime,jdbcType=VARCHAR}
+        </if>
+        <if test="ts != null and ts != ''">
+            AND ts=#{ts,jdbcType=VARCHAR}
         </if>
     </sql>
 

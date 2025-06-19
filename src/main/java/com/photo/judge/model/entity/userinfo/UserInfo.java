@@ -1,9 +1,6 @@
 package com.photo.judge.model.entity.userinfo;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 import com.photo.judge.common.annotation.Desc;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -42,20 +39,24 @@ public class UserInfo implements Serializable {
     @Desc("用户头像链接")
     private String userAvatar;
 
-    @TableField("creater")
+    @TableField(value = "creater", fill = FieldFill.INSERT)
     @Desc("创建人 ")
     private String creater;
 
-    @TableField("create_time")
+    @TableField(value = "create_time", fill = FieldFill.INSERT)
     @Desc("创建时间")
     private String createTime;
 
-    @TableField("updater")
+    @TableField(value = "updater", fill = FieldFill.UPDATE)
     @Desc("修改人")
     private String updater;
 
-    @TableField("update_time")
+    @TableField(value = "update_time", fill = FieldFill.UPDATE)
     @Desc("修改时间")
     private String updateTime;
+
+    @TableField(value = "ts", fill = FieldFill.INSERT_UPDATE)
+    @Desc("时间戳")
+    private String ts;
 
 }
