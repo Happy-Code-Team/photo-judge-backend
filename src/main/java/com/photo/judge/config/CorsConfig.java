@@ -1,10 +1,9 @@
-package com.example.yourproject.config; // 确保包名正确
+package com.photo.judge.config; // 确保包名正确
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import jakarta.servlet.http.HttpServletRequest; // 确保导入正确的 HttpServletRequest
 
 @Configuration
 public class CorsConfig {
