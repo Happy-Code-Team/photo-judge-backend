@@ -37,7 +37,7 @@ public class User implements Serializable {
     private String userName;
 
     @TableField("password")
-    @Desc("密码")
+    @Desc("用户密码")
     private String password;
 
     @TableField("email")

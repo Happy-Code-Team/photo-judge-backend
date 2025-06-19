@@ -16,13 +16,13 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @TableName("user")
-@Desc("用户表#扩展")
+@Desc("用户表")
 @Accessors(chain = true)//开启链式
+@Builder
 public class UserExtend extends User implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @TableField(exist = false)
     private List<String> idList;//主键id集合
-
 }

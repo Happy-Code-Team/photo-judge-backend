@@ -1,7 +1,6 @@
 package com.photo.judge.service.user;
 
 import com.photo.judge.dao.user.UserDao;
-import com.photo.judge.model.entity.user.User;
 import com.photo.judge.model.entity.user.UserExtend;
 import com.photo.judge.service.myservice.MyServiceImpl;
 import org.springframework.stereotype.Service;
@@ -10,7 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * 用户service实现类
+ * 用户表service实现类
  */
 @Service
 public class UserServiceImpl extends MyServiceImpl<UserDao, UserExtend> implements UserService {
