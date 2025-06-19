@@ -13,5 +13,3 @@
 
 ## 需求文档
 [详细需求文档及待办事项](docs/task/需求文档.md)
-
-test-remote
