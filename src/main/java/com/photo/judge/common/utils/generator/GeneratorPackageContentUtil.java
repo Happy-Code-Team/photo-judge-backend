@@ -10,10 +10,7 @@ public class GeneratorPackageContentUtil {
         StringBuffer content = new StringBuffer();
         content.append("package " + GeneratorConfigInfo.parent + "." + GeneratorConfigInfo.entity + "." + generatorTable.getPackageName() + ";").append(System.lineSeparator());
         content.append("").append(System.lineSeparator());
-        content.append("import com.baomidou.mybatisplus.annotation.IdType;").append(System.lineSeparator());
-        content.append("import com.baomidou.mybatisplus.annotation.TableField;").append(System.lineSeparator());
-        content.append("import com.baomidou.mybatisplus.annotation.TableId;").append(System.lineSeparator());
-        content.append("import com.baomidou.mybatisplus.annotation.TableName;").append(System.lineSeparator());
+        content.append("import com.baomidou.mybatisplus.annotation.*;").append(System.lineSeparator());
         content.append("import com.photo.judge.common.annotation.Desc;").append(System.lineSeparator());
         content.append("import lombok.AllArgsConstructor;").append(System.lineSeparator());
         content.append("import lombok.Data;").append(System.lineSeparator());
@@ -36,6 +33,12 @@ public class GeneratorPackageContentUtil {
         for (GeneratorTableColumnInfo column : generatorTable.getGeneratorTableColumnList()) {
             if (Objects.equals(column.getColumnName(), generatorTable.getIdKeyStr())) {
                 content.append("    @TableId(value = \"" + column.getColumnName() + "\", type = IdType.ASSIGN_ID)").append(System.lineSeparator());
+            } else if (Objects.equals(column.getColumnName(), "creater") || Objects.equals(column.getColumnName(), "create_time")) {
+                content.append("    @TableField(value = \"" + column.getColumnName() + "\", fill = FieldFill.INSERT)").append(System.lineSeparator());
+            } else if (Objects.equals(column.getColumnName(), "updater") || Objects.equals(column.getColumnName(), "update_time")) {
+                content.append("    @TableField(value = \"" + column.getColumnName() + "\", fill = FieldFill.UPDATE)").append(System.lineSeparator());
+            } else if (Objects.equals(column.getColumnName(), "ts")) {
+                content.append("    @TableField(value = \"" + column.getColumnName() + "\", fill = FieldFill.INSERT_UPDATE)").append(System.lineSeparator());
             } else {
                 content.append("    @TableField(\"" + column.getColumnName() + "\")").append(System.lineSeparator());
             }
