@@ -4,7 +4,7 @@ import com.photo.judge.model.entity.user.UserExtend;
 import com.photo.judge.service.myservice.MyService;
 
 /**
- * 用户service
+ * 用户表service
  */
 public interface UserService extends MyService<UserExtend> {
 

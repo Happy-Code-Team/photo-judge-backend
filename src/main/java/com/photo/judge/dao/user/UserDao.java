@@ -5,7 +5,7 @@ import com.photo.judge.model.entity.user.UserExtend;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
- * 用户Dao
+ * 用户表Dao
  */
 @Mapper
 public interface UserDao extends MyDao<UserExtend> {
