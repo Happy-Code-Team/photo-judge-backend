@@ -1,4 +1,4 @@
-package com.photo.judge.model.entity.cartest;
+package com.photo.judge.model.entity.userinfo;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -14,13 +14,13 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@TableName("car_test")
-@Desc("用来测试的，后续会删掉")
+@TableName("user_info")
+@Desc("用户信息表#扩展")
 @Accessors(chain = true)//开启链式
-public class CarTestExtend extends CarTest implements Serializable {
+public class UserInfoExtend extends UserInfo implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @TableField(exist = false)
-    private List<String> idList;//id主键集合
+    private List<String> idList;//主键id集合
 }
