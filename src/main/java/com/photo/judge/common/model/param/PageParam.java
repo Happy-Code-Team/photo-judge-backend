@@ -17,7 +17,7 @@ public class PageParam implements Serializable {
     @TableField(exist = false)
     private Integer size;//每页大小
     
-    public <T> Page<T> getPage() {
+    public <T> Page<T> toPage() {
         return new Page<>(current, size);
     }
 }
