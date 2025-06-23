@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: "datasource"
+    active: "datasource-local"
   application:
     name: "photo-judge-backend"
 server:
