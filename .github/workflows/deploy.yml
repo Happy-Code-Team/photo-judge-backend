@@ -59,6 +59,7 @@ jobs:
             --name photo-app \
             -p 8089:8089 \
             --add-host host.docker.internal:host-gateway \
+            -e SPRING_PROFILES_ACTIVE=datasource-remote \
             photo-app:latest
 
       # 第七步：清理旧的悬挂 Docker 镜像
