@@ -11,7 +11,8 @@ public class GeneratorPackageContentUtil {
         content.append("package " + GeneratorConfigInfo.parent + "." + GeneratorConfigInfo.entity + "." + generatorTable.getPackageName() + ";").append(System.lineSeparator());
         content.append("").append(System.lineSeparator());
         content.append("import com.baomidou.mybatisplus.annotation.*;").append(System.lineSeparator());
-        content.append("import com.photo.judge.common.annotation.Desc;").append(System.lineSeparator());
+        content.append("import " + GeneratorConfigInfo.parent + ".common.annotation.Desc;").append(System.lineSeparator());
+        content.append("import " + GeneratorConfigInfo.parent + ".common.model.param.PageParam;").append(System.lineSeparator());
         content.append("import lombok.AllArgsConstructor;").append(System.lineSeparator());
         content.append("import lombok.Data;").append(System.lineSeparator());
         content.append("import lombok.NoArgsConstructor;").append(System.lineSeparator());
@@ -25,7 +26,7 @@ public class GeneratorPackageContentUtil {
         content.append("@TableName(\"" + GeneratorConfigInfo.tableName + "\")").append(System.lineSeparator());
         content.append("@Desc(\"" + generatorTable.getRemarks() + "\")").append(System.lineSeparator());
         content.append("@Accessors(chain = true)//开启链式").append(System.lineSeparator());
-        content.append("public class " + generatorTable.getBigHump() + " implements Serializable {").append(System.lineSeparator());
+        content.append("public class " + generatorTable.getBigHump() + " extends PageParam implements Serializable {").append(System.lineSeparator());
         content.append("").append(System.lineSeparator());
         content.append("    private static final long serialVersionUID = 1L;").append(System.lineSeparator());
         content.append("").append(System.lineSeparator());
@@ -57,7 +58,7 @@ public class GeneratorPackageContentUtil {
         content.append("").append(System.lineSeparator());
         content.append("import com.baomidou.mybatisplus.annotation.TableField;").append(System.lineSeparator());
         content.append("import com.baomidou.mybatisplus.annotation.TableName;").append(System.lineSeparator());
-        content.append("import com.photo.judge.common.annotation.Desc;").append(System.lineSeparator());
+        content.append("import " + GeneratorConfigInfo.parent + ".common.annotation.Desc;").append(System.lineSeparator());
         content.append("import lombok.AllArgsConstructor;").append(System.lineSeparator());
         content.append("import lombok.Data;").append(System.lineSeparator());
         content.append("import lombok.NoArgsConstructor;").append(System.lineSeparator());
