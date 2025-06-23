@@ -1,4 +1,4 @@
-package com.photo.judge.dao.mydao;
+package com.photo.judge.common.model.mydao;
 
 import com.github.yulichang.base.MPJBaseMapper;
 

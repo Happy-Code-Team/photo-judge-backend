@@ -1,4 +1,4 @@
-package com.photo.judge.service.myservice;
+package com.photo.judge.common.model.myservice;
 
 import com.github.yulichang.base.MPJBaseMapper;
 import com.github.yulichang.base.MPJBaseServiceImpl;

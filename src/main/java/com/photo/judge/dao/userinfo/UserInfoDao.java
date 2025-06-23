@@ -1,6 +1,6 @@
 package com.photo.judge.dao.userinfo;
 
-import com.photo.judge.dao.mydao.MyDao;
+import com.photo.judge.common.model.mydao.MyDao;
 import com.photo.judge.model.entity.userinfo.UserInfoExtend;
 import org.apache.ibatis.annotations.Mapper;
 

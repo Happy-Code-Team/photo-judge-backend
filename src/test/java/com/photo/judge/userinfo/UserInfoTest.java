@@ -1,6 +1,5 @@
 package com.photo.judge.userinfo;
 
-import com.github.yulichang.base.MPJBaseMapper;
 import com.github.yulichang.wrapper.MPJLambdaWrapper;
 import com.photo.judge.model.entity.userinfo.UserInfoExtend;
 import com.photo.judge.service.userinfo.UserInfoService;
