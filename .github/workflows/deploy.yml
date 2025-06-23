@@ -1,4 +1,6 @@
 name: Deploy Photo judge with Docker
+env:
+  SPRING_PROFILES_ACTIVE: "datasource-remote" # 设置 Spring Boot 的活动配置文件为 datasource-remote
 
 on:
   push:

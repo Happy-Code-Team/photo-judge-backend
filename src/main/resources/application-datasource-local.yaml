@@ -4,8 +4,7 @@ spring:
     password: 123456
     #开启批量执行    &rewriteBatchedStatements=true
     # 本地使用 localhost
-    # url: jdbc:mysql://localhost:3306/photo?useUnicode=true&amp&characterEncoding=utf-8&serverTimezone=UTC&rewriteBatchedStatements=true
-    url: jdbc:mysql://host.docker.internal:3306/photo?useUnicode=true&amp&characterEncoding=utf-8&serverTimezone=UTC&rewriteBatchedStatements=true
+    url: jdbc:mysql://localhost:3306/photo?useUnicode=true&amp&characterEncoding=utf-8&serverTimezone=UTC&rewriteBatchedStatements=true
 
     driver-class-name: com.mysql.cj.jdbc.Driver
 
