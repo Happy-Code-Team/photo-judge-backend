@@ -1,0 +1,34 @@
+spring:
+  datasource:
+    username: root
+    password: 123456
+    #开启批量执行    &rewriteBatchedStatements=true
+    # 本地使用 localhost
+    url: jdbc:mysql://host.docker.internal:3306/photo?useUnicode=true&amp&characterEncoding=utf-8&serverTimezone=UTC&rewriteBatchedStatements=true
+
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+#配置日志
+mybatis-plus:
+  mapper-locations: classpath:/dao/**/*.xml #指定 MyBatis 的 Mapper XML 文件的位置
+  type-aliases-package: com.photo.judge.model.entity #配置实体类别名包路径。这里配置为com.photo.judge.model.entity，这样在Mapper XML文件中就可以使用该包下类的简单类名（首字母小写）而不需要写全限定名
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #MyBatis原生配置项，这里配置了log-impl，设置MyBatis的日志实现。这里使用的是org.apache.ibatis.logging.stdout.StdOutImpl，表示将日志输出到控制台
+  configurationProperties:
+    tablePrefix:  # 定义动态表名前缀（全局生效）   在 XML 文件中可通过 ${tablePrefix} 引用该值，动态拼接表名   或者   在@TableName(value = "${tablePrefix}user_info",keepGlobalPrefix = true)中增加前缀以动态的切换不同生产环境不同数据库名
+  #配置逻辑删除
+  global-config:
+    db-config:
+      logic-delete-value: 1    # 已删除状态的值
+      logic-not-delete-value: 0 # 未删除状态的值
+      logic-delete-field: dr    # 实体类中表示逻辑删除的字段名
+
+# 打印 mybatis plus join banner
+mybatis-plus-join:
+  banner: true
+  sub-table-logic: true
+
+# sql 日志的输出
+logging:
+  level:
+    com.photo.judge.dao: debug

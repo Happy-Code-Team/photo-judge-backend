@@ -17,12 +17,11 @@ public class UserInfoServiceImpl extends MyServiceImpl<UserInfoDao, UserInfoExte
 
 	@Override
 	public Boolean checkUserCodeIsExist(String userCode) {
-		return -this.lambdaQuery().eq(UserInfoExtend::getUserCode, userCode).count() != 0L;
+		return this.lambdaQuery().eq(UserInfoExtend::getUserCode, userCode).count() != 0L;
 	}
 
 	@Override
 	public Response userRegister(UserInfoExtend userInfoExtend) {
-		userInfoExtend.setTs(DateUtil.now());
 		this.save(userInfoExtend);
 		return Response.success(userInfoExtend);
 	}
