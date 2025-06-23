@@ -49,13 +49,14 @@ jobs:
 
       # 第六步：启动新的 Docker 容器
       # 以后台模式 (-d) 启动新的 photo-app 容器
-      # --name 为容器指定名称，-p 8080:8080 将容器内部 8080 端口映射到宿主机 8080 端口
+      # --name 为容器指定名称，-p 8089:8089 将容器内部 8089 端口映射到宿主机 8089 端口
+      # --add-host host.docker.internal:host-gateway 允许容器通过 host.docker.internal 访问宿主机
       - name: Run Docker container
         run: |
           docker run -d \
             --name photo-app \
             -p 8089:8089 \
-            --add-host host.docker.internal:host-gateway \ # 映射宿主机 ip 到容器内部
+            --add-host host.docker.internal:host-gateway \
             photo-app:latest
 
       # 第七步：清理旧的悬挂 Docker 镜像
