@@ -17,8 +17,9 @@
 ![img.png](docs/readme/excalidraw/images/后端框架结构图.png)
 
 ## 项目依赖
-* Spring Boot 3.4+
+* Spring Boot 3.5
 * Jdk 17
+* mysql8
 
 ## 需求文档
 

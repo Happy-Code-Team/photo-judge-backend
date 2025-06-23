@@ -22,6 +22,9 @@ public class UserInfoServiceImpl extends MyServiceImpl<UserInfoDao, UserInfoExte
 
 	@Override
 	public Response userRegister(UserInfoExtend userInfoExtend) {
+		if (this.checkUserCodeIsExist(userInfoExtend.getUserCode())) {
+			return Response.fail(500, "用户编码已存在");
+		}
 		this.save(userInfoExtend);
 		return Response.success(userInfoExtend);
 	}
