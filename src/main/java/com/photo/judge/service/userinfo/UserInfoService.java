@@ -1,8 +1,8 @@
 package com.photo.judge.service.userinfo;
 
+import com.photo.judge.common.model.myservice.MyService;
 import com.photo.judge.common.response.Response;
 import com.photo.judge.model.entity.userinfo.UserInfoExtend;
-import com.photo.judge.service.myservice.MyService;
 
 /**
  * 用户信息表service

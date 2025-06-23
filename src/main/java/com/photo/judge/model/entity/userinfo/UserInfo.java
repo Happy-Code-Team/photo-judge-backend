@@ -2,6 +2,7 @@ package com.photo.judge.model.entity.userinfo;
 
 import com.baomidou.mybatisplus.annotation.*;
 import com.photo.judge.common.annotation.Desc;
+import com.photo.judge.common.model.param.PageParam;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,7 +16,7 @@ import java.io.Serializable;
 @TableName("user_info")
 @Desc("用户信息表")
 @Accessors(chain = true)//开启链式
-public class UserInfo implements Serializable {
+public class UserInfo extends PageParam implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

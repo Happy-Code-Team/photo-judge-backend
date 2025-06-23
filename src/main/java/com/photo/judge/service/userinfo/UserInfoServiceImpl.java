@@ -1,10 +1,10 @@
 package com.photo.judge.service.userinfo;
 
 import cn.hutool.core.date.DateUtil;
+import com.photo.judge.common.model.myservice.MyServiceImpl;
 import com.photo.judge.common.response.Response;
 import com.photo.judge.dao.userinfo.UserInfoDao;
 import com.photo.judge.model.entity.userinfo.UserInfoExtend;
-import com.photo.judge.service.myservice.MyServiceImpl;
 import org.springframework.stereotype.Service;
 
 import java.util.Objects;

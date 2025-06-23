@@ -1,8 +1,11 @@
 package com.photo.judge.controller.userinfo;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.photo.judge.common.annotation.Desc;
+import com.photo.judge.common.model.page.PageResult;
 import com.photo.judge.common.response.Response;
 import com.photo.judge.model.entity.userinfo.UserInfoExtend;
+import com.photo.judge.model.vo.userinfo.UserInfoVO;
 import com.photo.judge.service.userinfo.UserInfoService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -45,5 +48,11 @@ public class UserInfoController {
 		return userInfoService.userLogin(userInfoExtend);
 	}
 
+    /** 分页查询 **/
+    @PostMapping("/userinfo/selectPage")
+    public Response selectPage(@RequestBody UserInfoExtend userInfoExtend) {
+        Page<UserInfoExtend> page = userInfoService.lambdaQuery().eq(UserInfoExtend::getUserPassword, "123456").page(userInfoExtend.getPage());
+        return Response.success(PageResult.fromClone(page, UserInfoVO.class));
 
+    }
 }
