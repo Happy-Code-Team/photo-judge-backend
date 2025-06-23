@@ -3,8 +3,18 @@ env:
   SPRING_PROFILES_ACTIVE: "datasource-remote" # 设置 Spring Boot 的活动配置文件为 datasource-remote
 
 on:
-  push:
-    branches: [main] # 当代码推送到 main 分支时触发
+  workflow_dispatch:
+  # 可以在这里定义输入参数，如果需要手动触发时输入值
+  # inputs:
+  #   logLevel:
+  #     description: '日志级别'
+  #     required: true
+  #     default: 'warning'
+  #   tags:
+  #     description: '标签'
+  #     required: false
+#  push:
+#    branches: [main] # 当代码推送到 main 分支时触发
 #  pull_request:
 #    branches: [main] # 当有拉取请求合并到 main 分支时触发
 
