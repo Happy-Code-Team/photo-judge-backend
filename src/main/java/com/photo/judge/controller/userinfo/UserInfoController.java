@@ -51,7 +51,7 @@ public class UserInfoController {
     /** 分页查询 **/
     @PostMapping("/userinfo/selectPage")
     public Response selectPage(@RequestBody UserInfoExtend userInfoExtend) {
-        Page<UserInfoExtend> page = userInfoService.lambdaQuery().eq(UserInfoExtend::getUserPassword, "123456").page(userInfoExtend.getPage());
+        Page<UserInfoExtend> page = userInfoService.lambdaQuery().eq(UserInfoExtend::getUserPassword, "123456").page(userInfoExtend.toPage());
         return Response.success(PageResult.fromClone(page, UserInfoVO.class));
 
     }
