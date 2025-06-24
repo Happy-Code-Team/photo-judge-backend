@@ -7,7 +7,6 @@ import com.photo.judge.common.response.Response;
 import com.photo.judge.model.entity.userinfo.UserInfoExtend;
 import com.photo.judge.model.vo.userinfo.UserInfoVO;
 import com.photo.judge.service.userinfo.UserInfoService;
-import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -38,7 +37,7 @@ public class UserInfoController {
 
 	@PostMapping("/user/register")
 	@Desc("用户注册")
-	public Response register(@RequestBody @Valid UserInfoExtend userInfoExtend) {
+	public Response register(@RequestBody UserInfoExtend userInfoExtend) {
 		return userInfoService.userRegister(userInfoExtend);
 	}
 

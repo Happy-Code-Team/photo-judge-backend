@@ -3,10 +3,6 @@ package com.photo.judge.model.entity.userinfo;
 import com.baomidou.mybatisplus.annotation.*;
 import com.photo.judge.common.annotation.Desc;
 import com.photo.judge.common.model.param.PageParam;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -28,19 +24,14 @@ public class UserInfo extends PageParam implements Serializable {
     @Desc("主键")
     private String id;
 
-    @NotBlank(message = "账号不能为空")
     @TableField("user_code")
-    @Desc("用户账号")
+    @Desc("用户编码")
     private String userCode;
 
-    @Pattern(regexp = "^[a-zA-Z0-9]+$", message = "账号只能包含字母和数字")
-    @NotBlank(message = "昵称不能为空")
     @TableField("user_name")
     @Desc("用户昵称")
     private String userName;
 
-    @NotBlank(message = "用户密码不能为空")
-    @Pattern(regexp = "^\\S+$", message = "用户密码不能包含空格")
     @TableField("user_password")
     @Desc("用户密码")
     private String userPassword;
