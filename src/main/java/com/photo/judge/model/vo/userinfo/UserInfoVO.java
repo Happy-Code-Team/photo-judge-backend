@@ -15,7 +15,7 @@ import java.io.Serializable;
 @TableName("user_info")
 @Desc("用户信息表VO")
 @Accessors(chain = true)//开启链式
-public class UserInfoVO  implements Serializable {
+public class UserInfoVO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

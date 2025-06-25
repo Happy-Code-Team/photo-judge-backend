@@ -11,7 +11,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- * 聂文学 最后一次更新时间:2023-06-14 17:34:31
+ * class工具类    聂文学 最后一次更新时间:2023-06-14 17:34:31
  */
 public class ClassUtilsPhoto {
     //获取到对象的第index个的字段名称   0为第一个字段
@@ -124,8 +124,8 @@ public class ClassUtilsPhoto {
             List<Field> nameAll = getNameAll(entity);
             Map<String, List<Field>> map = nameAll.stream().collect(Collectors.groupingBy(n -> n.getName()));
             List<Field> fieldList = map.get(getName);
-            if(Objects.isNull(fieldList) || fieldList.size()==0){
-                throw new RuntimeException("未知的字段："+getName);
+            if (Objects.isNull(fieldList) || fieldList.size() == 0) {
+                throw new RuntimeException("未知的字段：" + getName);
             }
             String type = fieldList.get(0).getGenericType().toString();
             //不对基础类型进行get  (因为一般的实体类没有int之类的类型，如果有父类中是有int等之类的，默认值是0，所以在get的时候不允许get出int之类的数据)
@@ -137,11 +137,11 @@ public class ClassUtilsPhoto {
                 Method m = entity.getClass().getMethod("get" + getName);
                 Object value = m.invoke(entity);
                 return value;
-            }else{
+            } else {
                 return null;
             }
         } catch (Exception e) {
-            throw new RuntimeException("没有get"+getName + "方法--->"+e.getMessage());
+            throw new RuntimeException("没有get" + getName + "方法--->" + e.getMessage());
         }
     }
 
@@ -190,7 +190,7 @@ public class ClassUtilsPhoto {
         List<Field> list = new ArrayList<>();
         Field[] declaredFields = clazz.getDeclaredFields();
         for (Field field : declaredFields) {
-            if(field.getName().equals("serialVersionUID")){
+            if (field.getName().equals("serialVersionUID")) {
                 continue;
             }
             if (!list.contains(field)) {
@@ -208,7 +208,7 @@ public class ClassUtilsPhoto {
         while (clazz != null) {
             Field[] declaredFields = clazz.getDeclaredFields();
             for (Field field : declaredFields) {
-                if(field.getName().equals("serialVersionUID")){
+                if (field.getName().equals("serialVersionUID")) {
                     continue;
                 }
                 if (!list.contains(field)) {
@@ -256,12 +256,12 @@ public class ClassUtilsPhoto {
     }
 
     //获取到某个对象的所有非空字段值集合 返回Map(包括父类)  flag:为空是否put  默认否
-    public static <T> Map<String, Object> getVMapListAndSuper(T entity){
+    public static <T> Map<String, Object> getVMapListAndSuper(T entity) {
         return getVMapListAndSuper(entity, false);
     }
 
     //获取到某个对象的所有非空字段值集合 返回Map(包括父类)  flag:为空是否put  true:是  false:否
-    public static <T> Map<String, Object> getVMapListAndSuper(T entity, boolean flag){
+    public static <T> Map<String, Object> getVMapListAndSuper(T entity, boolean flag) {
         List<Field> list = getNameAll(entity);//全部的字段Field集合
         Map<String, Object> map = new HashMap<>();//
         for (Field field : list) {

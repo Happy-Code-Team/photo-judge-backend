@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
 /**
  * 用户信息表controller
  */
@@ -19,37 +20,37 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UserInfoController {
 
-	private final UserInfoService userInfoService;
+    private final UserInfoService userInfoService;
 
-	public UserInfoController(UserInfoService userInfoService) {
-		this.userInfoService = userInfoService;
-	}
+    public UserInfoController(UserInfoService userInfoService) {
+        this.userInfoService = userInfoService;
+    }
 
-	@GetMapping("/user/checkUserCodeIsExist")
-	@Desc("检查用户编码是否存在")
-	public Response checkUserCodeIsExist(String userCode) {
-		if (userInfoService.checkUserCodeIsExist(userCode)) {
-			return Response.fail(500, "用户编码已存在");
-		} else {
-			return Response.success(null);
-		}
-	}
+    @GetMapping("/user/checkUserCodeIsExist")
+    @Desc("检查用户编码是否存在")
+    public Response checkUserCodeIsExist(String userCode) {
+        if (userInfoService.checkUserCodeIsExist(userCode)) {
+            return Response.fail(500, "用户编码已存在");
+        } else {
+            return Response.success(null);
+        }
+    }
 
-	@PostMapping("/user/register")
-	@Desc("用户注册")
-	public Response register(@RequestBody UserInfoExtend userInfoExtend) {
-		return userInfoService.userRegister(userInfoExtend);
-	}
+    @PostMapping("/user/register")
+    @Desc("用户注册")
+    public Response register(@RequestBody UserInfoExtend userInfoExtend) {
+        return userInfoService.userRegister(userInfoExtend);
+    }
 
-	@PostMapping("/user/login")
-	@Desc("用户登录")
-	public Response login(@RequestBody UserInfoExtend userInfoExtend) {
-		log.info("User login attempt: {}", userInfoExtend);
-		return userInfoService.userLogin(userInfoExtend);
-	}
+    @PostMapping("/user/login")
+    @Desc("用户登录")
+    public Response login(@RequestBody UserInfoExtend userInfoExtend) {
+        log.info("User login attempt: {}", userInfoExtend);
+        return userInfoService.userLogin(userInfoExtend);
+    }
 
-    /** 分页查询 **/
     @PostMapping("/userinfo/selectPage")
+    @Desc("分页查询")
     public Response selectPage(@RequestBody UserInfoExtend userInfoExtend) {
         Page<UserInfoExtend> page = userInfoService.lambdaQuery().eq(UserInfoExtend::getUserPassword, "123456").page(userInfoExtend.toPage());
         return Response.success(PageResult.fromClone(page, UserInfoVO.class));
