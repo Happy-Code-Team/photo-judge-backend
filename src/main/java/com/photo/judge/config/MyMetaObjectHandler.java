@@ -7,6 +7,9 @@ import org.springframework.stereotype.Component;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * mybatis-plus元数据处理器
+ */
 @Component
 public class MyMetaObjectHandler implements MetaObjectHandler {
 
