@@ -20,9 +20,10 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
         String creater = getCurrentUser();//创建人
         String time = LocalDateTime.now().format(formatter);//获取时间戳
 
-        this.strictInsertFill(metaObject, "creater", String.class, creater);//创建人
-        this.strictInsertFill(metaObject, "createTime", String.class, time);//创建时间
-        this.strictInsertFill(metaObject, "ts", String.class, time);//时间戳
+        //使用fillStrategy：仅当字段为空时赋值
+        this.fillStrategy(metaObject, "creater", creater);//创建人
+        this.fillStrategy(metaObject, "createTime", time);//创建时间
+        this.fillStrategy(metaObject, "ts", time);//时间戳
     }
 
     @Override
@@ -30,9 +31,10 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
         String updater = getCurrentUser();//修改人
         String time = LocalDateTime.now().format(formatter);//获取时间戳
 
-        this.strictUpdateFill(metaObject, "updater", String.class, updater);//修改人
-        this.strictUpdateFill(metaObject, "updateTime", String.class, time);//修改时间
-        this.strictUpdateFill(metaObject, "ts", String.class, time);//时间戳
+        //使用fillStrategy：仅当字段为空时赋值
+        this.fillStrategy(metaObject, "updater", updater);//修改人
+        this.fillStrategy(metaObject, "updateTime", time);//修改时间
+        this.fillStrategy(metaObject, "ts", time);//时间戳
     }
 
 
