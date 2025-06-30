@@ -23,4 +23,10 @@ public class UserInfoExtend extends UserInfo implements Serializable {
 
     @TableField(exist = false)
     private List<String> idList;//主键id集合
+
+    @TableField(exist = false)
+    private String startTime;//开始时间
+
+    @TableField(exist = false)
+    private String endTime;//结束时间
 }
