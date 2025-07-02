@@ -1,4 +1,4 @@
-package com.photo.judge;
+package com.photo.judge.redis;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
