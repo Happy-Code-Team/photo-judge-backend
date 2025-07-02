@@ -20,6 +20,10 @@
 * Spring Boot 3.5
 * Jdk 17
 * mysql8
+* mybatis
+* mybatis-plus
+* redis
+* Spring Cache
 
 ## 需求文档
 
