@@ -3,6 +3,11 @@ spring:
     active: "datasource-local"
   application:
     name: "photo-judge-backend"
+  quartz:
+    job-store-type: jdbc
+    # 配置不自动初始化表
+    jdbc:
+      initialize-schema: never
 server:
   port: 8089
   servlet:
