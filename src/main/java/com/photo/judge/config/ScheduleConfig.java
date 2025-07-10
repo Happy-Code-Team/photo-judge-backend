@@ -1,4 +1,4 @@
-package com.photo.judge.schedule.profile;
+package com.photo.judge.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
