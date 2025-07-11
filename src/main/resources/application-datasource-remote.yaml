@@ -45,7 +45,14 @@ spring:
             # 连接池最大等待时间, 当 Redis 连接池没有可用的连接的时候的最大等待时间，超过等待时间则抛出异常, 负数为一直等待，不建议
             max-wait: 3000ms
 
-
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    listener:
+      simple:
+        acknowledge-mode: manual
 
 #配置日志
 mybatis-plus:
