@@ -32,8 +32,7 @@ public abstract class AbstractQuartzJob implements Job {
 	}
 
 	/**
-	 * 执行前
-	 *
+	 * 执行前, 钩子方法，由具体的子类进行实现
 	 * @param context 工作执行上下文对象
 	 * @param job     系统计划任务
 	 */
