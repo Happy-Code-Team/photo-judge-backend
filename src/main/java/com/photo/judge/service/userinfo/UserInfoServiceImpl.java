@@ -1,9 +1,11 @@
 package com.photo.judge.service.userinfo;
 
+import com.photo.judge.common.context.RequestContextHolder;
 import com.photo.judge.common.model.myservice.MyServiceImpl;
 import com.photo.judge.common.response.Response;
 import com.photo.judge.dao.userinfo.UserInfoDao;
 import com.photo.judge.model.entity.userinfo.UserInfoExtend;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.Objects;
@@ -12,11 +14,13 @@ import java.util.Objects;
  * 用户信息表service实现类
  */
 @Service
+@Slf4j
 public class UserInfoServiceImpl extends MyServiceImpl<UserInfoDao, UserInfoExtend> implements UserInfoService {
 
     //查询当前 userCode 是否存在
     @Override
     public Boolean checkUserCodeIsExist(String userCode) {
+        log.info("请求 ID：{}, 检查用户编码是否存在: {}", RequestContextHolder.getContext().getRequestId(), userCode);
         return this.lambdaQuery().eq(UserInfoExtend::getUserCode, userCode).count() != 0L;
     }
 

@@ -14,6 +14,9 @@ public class RedisTest {
     @Autowired
     private RedisTemplate<String, Object> redisTemplate;
 
+    /**
+     * 测试 Redis 的读取
+     */
     @Test
     public void testSetAndGet() {
         String key = "test:key";
@@ -23,5 +26,16 @@ public class RedisTest {
         // 从 Redis 读取
         Object result = redisTemplate.opsForValue().get(key);
         assertEquals(value, result);
+    }
+
+    /**
+     * Redis 生成分布式 ID 的方法
+     */
+    @Test
+    public void distributedId() {
+        String key = "distributed:id";
+        Long id = redisTemplate.opsForValue().increment(key);
+        System.out.println("生成的分布式ID: " + id);
+        assertNotNull(id);
     }
 }
